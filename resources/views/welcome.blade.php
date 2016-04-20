@@ -11,23 +11,7 @@
 
         <nav class="navbar navbar-light bg-faded">
           <a class="navbar-brand" href="#">Unraid</a>
-          <ul class="nav navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Downloads</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Plugins</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Go</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Here</a>
-            </li>
-          </ul>
+          <span>{{'{title}'}}</span>
           <ul class="nav navbar-nav pull-xs-right">
             <!-- <li><a href="#">Dashboard</a></li> -->
             <li class="nav-item"><a href="#">Settings</a></li>
@@ -42,15 +26,26 @@
 
     <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar">
-      <ul class="nav nav-sidebar">
-        <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Analytics</a></li>
-        <li><a href="#">Export</a></li>
-      </ul>
+    <div class="col-sm-2 col-md-1 sidebar">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Media / Downloads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Security</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Backups</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home Automation</a>
+          </li>
+        </ul>
     </div>
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1 main">
       <h1 class="page-header">Dashboard</h1>
 
       <div class="row placeholders">
@@ -89,7 +84,7 @@
             </tr>
           </thead>
           <tbody>
-            
+
           </tbody>
         </table>
       </div>
