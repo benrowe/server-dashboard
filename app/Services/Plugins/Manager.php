@@ -11,16 +11,15 @@ use SplFileInfo;
 class Manager
 {
     /**
-     * @var SplFileInfo
+     * Holds the configuration object, related to the specified config file
+     *
+     * @var ConfigFile
      */
-    private $configFile;
-
     protected $config;
 
     public function __construct(SplFileInfo $configFile)
     {
-        $this->configFile = $configFile;
-        // $this->loadConfig();
+        $this->config = new ConfigFile($configFile);
     }
 
     /**
@@ -101,25 +100,5 @@ class Manager
     private function getPackageApiClient()
     {
         return new \Packagist\Api\Client();
-    }
-
-    /**
-     * Load the plugin configuration (based on the supplied file)
-     *
-     * @return boolean
-     */
-    private function loadConfig()
-    {
-
-    }
-
-    /**
-     * Save the current state of the configuration back to the config file
-     *
-     * @return boolean
-     */
-    private function saveConfig()
-    {
-
     }
 }
