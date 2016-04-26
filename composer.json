@@ -49,6 +49,13 @@
             "php artisan optimize"
         ]
     },
+    "extra": {
+        "merge-plugin": {
+            "include": [
+                "storage/app/plugins.json"
+            ]
+        }
+    },
     "config": {
         "preferred-install": "dist"
     }
