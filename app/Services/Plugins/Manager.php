@@ -34,6 +34,11 @@ class Manager
         //
     }
 
+    /**
+     * [update description]
+     * @param  [type] $package [description]
+     * @return [type]          [description]
+     */
     public function update($package)
     {
         // 1. make sure that the package is already installed in the configuration
@@ -41,12 +46,42 @@ class Manager
         // 2. run composer update, and force it
     }
 
+    /**
+     * [remove description]
+     * @param  [type] $package [description]
+     * @return [type]          [description]
+     */
     public function remove($package)
     {
 
     }
 
+    /**
+     * [hasPackage description]
+     * @param  [type]  $package [description]
+     * @return boolean          [description]
+     */
     public function hasPackage($package)
+    {
+
+    }
+
+    /**
+     * List the currently installed plugins
+     *
+     * @return array it should contain a list of packages
+     */
+    public function installed()
+    {
+        return array_keys($this->config->get('require'));
+    }
+
+    /**
+     * Search the
+     * @param  [type] $query [description]
+     * @return [type]        [description]
+     */
+    public function search($query)
     {
 
     }
