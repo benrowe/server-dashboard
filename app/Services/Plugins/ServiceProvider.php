@@ -2,9 +2,9 @@
 
 namespace App\Services\Plugins;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as ServiceProviderParent;
 
-class ServiceProvider extends ServiceProvider
+class ServiceProvider extends ServiceProviderParent
 {
     /**
      * Bootstrap the application services.
