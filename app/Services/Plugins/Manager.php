@@ -17,9 +17,29 @@ class Manager
      */
     protected $config;
 
-    public function __construct(SplFileInfo $configFile)
+    /**
+     * the package that must be defined as a dependancy in the plugin root in
+     * order for it to be considered as a 'Plugin'
+     *
+     *  'benrowe/serverdash-plugin'
+     *
+     * @var string
+     */
+    protected $corePackage;
+
+    /**
+     * Constructor
+     *
+     * @param SplFileInfo $configFile a file pointer to the config file that
+     *                                will contain the list of
+     *                                installed/required plugins
+     * @param string $corePackage the dependancy in the plugins that
+     *                            must be included if it's a valid 'Plugin'
+     */
+    public function __construct(SplFileInfo $configFile, $corePackage)
     {
         $this->config = new ConfigFile($configFile);
+        $this->corePackage = $corePackage;
     }
 
     /**
