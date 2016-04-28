@@ -48,43 +48,43 @@ class Manager
      * @param  string $package the vendor/package name
      * @return [type]          [description]
      */
-    public function install($package)
-    {
+    // public function install($package)
+    // {
         // check that the package doesn't already exist in the configuration
         //
-    }
+    // }
 
     /**
      * [update description]
      * @param  [type] $package [description]
      * @return [type]          [description]
      */
-    public function update($package)
-    {
+    // public function update($package)
+    // {
         // 1. make sure that the package is already installed in the configuration
         // file
         // 2. run composer update, and force it
-    }
+    // }
 
     /**
      * [remove description]
      * @param  [type] $package [description]
      * @return [type]          [description]
      */
-    public function remove($package)
-    {
+    // public function remove($package)
+    // {
 
-    }
+    // }
 
     /**
      * [hasPackage description]
      * @param  [type]  $package [description]
      * @return boolean          [description]
      */
-    public function hasPackage($package)
-    {
+    // public function hasPackage($package)
+    // {
 
-    }
+    // }
 
     /**
      * List the currently installed plugins
@@ -101,15 +101,15 @@ class Manager
      * @param  [type] $query [description]
      * @return [type]        [description]
      */
-    public function search($query)
-    {
+    // public function search($query)
+    // {
 
-    }
+    // }
 
-    public function registerPackageServiceProvider($package = null)
-    {
+    // public function registerPackageServiceProvider($package = null)
+    // {
 
-    }
+    // }
 
     /**
      * Checks if the package name is valid (includes a vendor prefix)
