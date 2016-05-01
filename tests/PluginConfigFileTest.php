@@ -32,8 +32,25 @@ class PluginConfigFileTest extends TestCase
     {
          $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
          $this->assertEmpty($cfg->get('require'));
+    }
 
-        // $cfg->add('require', '')
+    public function testGetValues()
+    {
+        $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
+        $this->assertTrue($cfg->add('require', 'money/money'));
+        $this->assertTrue($cfg->add('require', 'money/money', 'dev-master'));
+        $this->assertTrue($cfg->add('require', 'money/money', '155'));
 
+        $this->assertTrue($cfg->exists('require', 'money/money'));
+    }
+
+    public function testPersistChanges()
+    {
+        $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
+        $cfg->add('require', 'money/money');
+        $cfg->save();
+
+        $content = file_get_contents($this->testFilePath);
+        $this->assertTrue(strpos($content, '"money/money"') !== false, "could not detect presence of money/money");
     }
 }
