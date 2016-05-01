@@ -129,8 +129,8 @@ class ConfigFile
      *
      * @return boolean
      */
-    // private function save()
-    // {
-        // @todo implement logic
-    // }
+    public function save()
+    {
+        $this->file->openFile('w')->fwrite(json_encode($this->data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    }
 }
