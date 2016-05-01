@@ -62,6 +62,32 @@ class ConfigFile
         }
         return $data;
     }
+
+    /**
+     * add a new value to the provided key
+     * @param string $key
+     * @param string $value
+     * @param [type] $other [description]
+     */
+    public function add($key, $value, $other = null)
+    {
+        if (!array_key_exists($key, $this->keyDefaults)) {
+            throw new \Exception('Unkown key "'.$key.'"');
+        }
+
+        if (!array_key_exists($key, $this->data)) {
+            $this->data[$key] = $this->keyDefaults[$key];
+        }
+
+        $this->data[$key][$value] = $other;
+        return true;
+    }
+
+    public function exists($key, $value = null)
+    {
+        return array_key_exists($key, $this->data);
+    }
+
     /**
      * [getConfig description]
      * @param  [type] $key [description]
