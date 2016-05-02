@@ -92,7 +92,15 @@ class ConfigFile
      */
     public function exists($key, $value = null)
     {
-        return array_key_exists($key, $this->data);
+        $data = $this->data;
+        if ($value) {
+            if (!array_key_exists($key, $data)) {
+                return false;
+            }
+            $data = $data[$key];
+            $key = $value;
+        }
+        return array_key_exists($key, $data);
     }
 
     /**
