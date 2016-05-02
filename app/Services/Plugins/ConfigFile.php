@@ -83,13 +83,21 @@ class ConfigFile
         return true;
     }
 
+    /**
+     * Check for the existance of a value in the config
+     *
+     * @param  string $key
+     * @param  string $value
+     * @return boolean true if exists
+     */
     public function exists($key, $value = null)
     {
         return array_key_exists($key, $this->data);
     }
 
     /**
-     * [getConfig description]
+     * Get the configuration data
+     * If a key is provided, just get that value
      * @param  [type] $key [description]
      * @return [type]      [description]
      */
