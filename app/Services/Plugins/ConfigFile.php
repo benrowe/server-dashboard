@@ -96,6 +96,22 @@ class ConfigFile
     }
 
     /**
+     * Remove a specific key from the config
+     *
+     * @param  string $key
+     * @param  string $value
+     * @return boolean true if removed
+     */
+    public function remove($key, $value = null)
+    {
+        if ($this->exists($key, $value)) {
+            unset($this->data[$key][$value]);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get the configuration data
      * If a key is provided, just get that value
      * @param  [type] $key [description]

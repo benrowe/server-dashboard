@@ -44,6 +44,23 @@ class PluginConfigFileTest extends TestCase
         $this->assertTrue($cfg->exists('require', 'money/money'));
     }
 
+    /**
+     * [testRemove description]
+     * @return [type] [description]
+     */
+    public function testRemove()
+    {
+        $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
+        $this->assertTrue($cfg->add('require', 'money/money'));
+
+        $this->assertTrue($cfg->exists('require', 'money/money'));
+
+        $this->assertTrue($cfg->remove('require', 'money/money'));
+        $this->assertFalse($cfg->exists('require', 'money/money'));
+        $this->assertFalse($cfg->remove('require', 'money/dontexist'));
+        // $this->assert
+    }
+
     public function testPersistChanges()
     {
         $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
