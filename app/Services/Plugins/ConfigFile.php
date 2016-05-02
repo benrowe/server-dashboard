@@ -56,9 +56,8 @@ class ConfigFile
         if (!$data) {
             if (array_key_exists($key, $this->keyDefaults)) {
                 return $this->keyDefaults[$key];
-            } else {
-                return null;
             }
+            return null;
         }
         return $data;
     }
