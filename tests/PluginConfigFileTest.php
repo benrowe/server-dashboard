@@ -78,6 +78,23 @@ class PluginConfigFileTest extends TestCase
     }
 
     /**
+     * [testSetGetValues description]
+     * @return [type] [description]
+     */
+    public function testSetGetValues()
+    {
+        $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
+        $cfg->add('require', 'test/test');
+        $cfg->add('require', 'test/test2');
+        $cfg->add('require', 'test/test3');
+        $cfg->set('require', ['money/money' => '1.0.0']);
+        $this->assertSame($cfg->get('require'), ['money/money' => '1.0.0']);
+
+    }
+
+
+
+    /**
      * [testPersistChanges description]
      *
      * @return [type] [description]

@@ -83,6 +83,17 @@ class ConfigFile
     }
 
     /**
+     * Set the value, replacing any existing values
+     *
+     * @param string $key
+     * @param mixed $value 
+     */
+    public function set($key, $value)
+    {
+        $this->data[$key] = $value;
+    }
+
+    /**
      * Check for the existance of a value in the config
      *
      * @param  string $key
