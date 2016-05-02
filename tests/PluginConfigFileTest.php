@@ -54,10 +54,12 @@ class PluginConfigFileTest extends TestCase
     {
         $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
         $this->assertTrue($cfg->add('require', 'money/money'));
+        $this->assertTrue($cfg->add('require', 'money/other'));
         $this->assertTrue($cfg->add('require', 'money/money', 'dev-master'));
         $this->assertTrue($cfg->add('require', 'money/money', '155'));
 
         $this->assertTrue($cfg->exists('require', 'money/money'));
+        $this->assertTrue($cfg->exists('require', 'money/other'));
     }
 
     /**
@@ -75,6 +77,19 @@ class PluginConfigFileTest extends TestCase
         $this->assertFalse($cfg->exists('require', 'money/money'));
         $this->assertFalse($cfg->remove('require', 'money/dontexist'));
         // $this->assert
+    }
+
+    /**
+     * [testGetConfig description]
+     * @return [type] [description]
+     */
+    public function testGetConfig()
+    {
+        $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
+        $this->assertTrue($cfg->getConfig() === []);
+        $cfg->add('require', 'money/money');
+        $this->assertTrue($cfg->getConfig() === ['require' => ['money/money' => null]]);
+        $this->assertTrue($cfg->getConfig('require') === ['money/money' => null]);
     }
 
     /**
