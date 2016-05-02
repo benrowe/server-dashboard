@@ -1,5 +1,9 @@
 <?php
 
+/**
+ *
+ */
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -11,6 +15,9 @@ class PluginConfigFileTest extends TestCase
 {
     private $testFilePath = 'tests/test.json';
 
+    /**
+     * [setUp description]
+     */
     public function setUp()
     {
         if (file_exists($this->testFilePath)) {
@@ -18,6 +25,10 @@ class PluginConfigFileTest extends TestCase
         }
     }
 
+    /**
+     * [tearDown description]
+     * @return [type] [description]
+     */
     public function tearDown()
     {
         $this->setUp();
@@ -34,7 +45,12 @@ class PluginConfigFileTest extends TestCase
          $this->assertEmpty($cfg->get('require'));
     }
 
-    public function testGetValues()
+    /**
+     * [testGetValues description]
+     *
+     * @return [type] [description]
+     */
+    public function testAddGetValues()
     {
         $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
         $this->assertTrue($cfg->add('require', 'money/money'));
@@ -61,6 +77,11 @@ class PluginConfigFileTest extends TestCase
         // $this->assert
     }
 
+    /**
+     * [testPersistChanges description]
+     *
+     * @return [type] [description]
+     */
     public function testPersistChanges()
     {
         $cfg = new App\Services\Plugins\ConfigFile(new \SplFileInfo($this->testFilePath));
